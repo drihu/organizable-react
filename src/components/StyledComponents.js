@@ -1,9 +1,11 @@
-import { styled } from '@emotion/styled';
+import styled from '@emotion/styled';
 
 const MainContainer = styled.div`
-  width: 900px;
+  width: 100%;
+  max-width: 960px;
   height: 100vh;
   margin: auto;
+  padding: 50px 15px;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 `;
@@ -16,7 +18,7 @@ const FormContainer = styled.div`
   min-width: 450px;
   box-sizing: border-box;
   width: 450px;
-  margin: 50px auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

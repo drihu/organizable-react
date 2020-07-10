@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { MainContainer } from './components/StyledComponents';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import Profile from './components/Profile';
+import BoardsPage from './components/BoardsPage';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('login');
+  const [user, setUser] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainContainer>
+      {(currentPage === 'login') && (
+        <Login setUser={setUser} setCurrentPage={setCurrentPage} />
+      )}
+
+      {(currentPage === 'sign-up') && (
+        <SignUp setUser={setUser} setCurrentPage={setCurrentPage} />
+      )}
+
+      {(currentPage === 'profile') && (
+        <Profile user={user} />
+      )}
+
+      {(currentPage === 'boards') && (
+        <BoardsPage user={user} />
+      )}
+    </MainContainer>
   );
 }
 
